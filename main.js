@@ -38,11 +38,7 @@ $(function() {
     extras: "owner_name,license", // 追加で取得する情報
     format: "json", // レスポンスをJSON形式に
     nojsoncallback: 1, // レスポンスの先頭に関数呼び出しを含めない
-  });
   
-  
-$(function() {
-  var parameters =  $.param({
     method: "flickr.photos.search",
     api_key: apiKey,
     text: "dog",// 検索テキスト
@@ -53,6 +49,7 @@ $(function() {
     format: "json", // レスポンスをJSON形式に
     nojsoncallback: 1, // レスポンスの先頭に関数呼び出しを含めない
   });
+
   
   
   var flickr_url = "https://api.flickr.com/services/rest/?" + parameters;
@@ -88,11 +85,6 @@ $(function() {
           }))
         );
       }
-
-
-
-
-
 
       // $divを#mainに追加する
       $div.appendTo("#main");
