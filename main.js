@@ -38,7 +38,21 @@ $(function() {
     extras: "owner_name,license", // 追加で取得する情報
     format: "json", // レスポンスをJSON形式に
     nojsoncallback: 1, // レスポンスの先頭に関数呼び出しを含めない
+  });
   
+  var flickr_url = "https://api.flickr.com/services/rest/?" + parameters;
+  console.log(flickr_url);
+  // 猫の画像を検索して表示
+  $.getJSON(flickr_url, function(data){
+    console.log(data);
+    if (data.stat == "ok") {
+      // 空の<div>を作る
+      var $div = $("<div>");
+   
+   
+      
+$(function() {
+  var parameters =  $.param({
     method: "flickr.photos.search",
     api_key: apiKey,
     text: "dog",// 検索テキスト
@@ -49,12 +63,10 @@ $(function() {
     format: "json", // レスポンスをJSON形式に
     nojsoncallback: 1, // レスポンスの先頭に関数呼び出しを含めない
   });
-
-  
   
   var flickr_url = "https://api.flickr.com/services/rest/?" + parameters;
   console.log(flickr_url);
-  // 猫の画像を検索して表示
+  // 犬の画像を検索して表示
   $.getJSON(flickr_url, function(data){
     console.log(data);
     if (data.stat == "ok") {
@@ -85,7 +97,9 @@ $(function() {
           }))
         );
       }
-
+      
+      
+      
       // $divを#mainに追加する
       $div.appendTo("#main");
 
