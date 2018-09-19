@@ -27,6 +27,8 @@ function getFlickrText(photo) {
   return text;
 }
 
+
+
 $(function() {
   var parameters =  $.param({
     method: "flickr.photos.search",
@@ -39,8 +41,9 @@ $(function() {
     format: "json", // レスポンスをJSON形式に
     nojsoncallback: 1, // レスポンスの先頭に関数呼び出しを含めない
   });
-  
-  var flickr_url = "https://api.flickr.com/services/rest/?" + parameters;
+});
+
+ var flickr_url = "https://api.flickr.com/services/rest/?" + parameters;
   console.log(flickr_url);
   // 猫の画像を検索して表示
   $.getJSON(flickr_url, function(data){
@@ -48,11 +51,9 @@ $(function() {
     if (data.stat == "ok") {
       // 空の<div>を作る
       var $div = $("<div>");
-   
-   
-      
-$(function() {
-  var parameters =  $.param({
+  }});
+  
+   var parameters =  $.param({
     method: "flickr.photos.search",
     api_key: apiKey,
     text: "dog",// 検索テキスト
@@ -73,8 +74,9 @@ $(function() {
       // 空の<div>を作る
       var $div = $("<div>");
 
-      // ヒット件数
-      $div.append("<div>" + data.photos.total + " photos in total</div>");
+ }});
+ 
+   $div.append("<div>" + data.photos.total + " photos in total</div>");
 
       for (var i = 0; i < data.photos.photo.length; i++) {
         var photo = data.photos.photo[i];
@@ -98,13 +100,9 @@ $(function() {
         );
       }
       
-      
-      
-      // $divを#mainに追加する
+         // $divを#mainに追加する
       $div.appendTo("#main");
 
       // BootstrapのTooltipを適用
       $("[data-toggle='tooltip']").tooltip();
-    }
-  });
-});
+    
